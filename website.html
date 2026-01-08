@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvryn Solutions - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #16082b;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(22, 8, 43, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(147, 51, 234, 0.1);
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 400;
+            transition: color 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 80px 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .avatar-section {
+            position: relative;
+            min-width: 280px;
+        }
+
+        .glow-effect {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.8) 0%, rgba(124, 58, 237, 0.4) 30%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .avatar-circle {
+            width: 240px;
+            height: 240px;
+            background: linear-gradient(135deg, #2d1655 0%, #1a0d33 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 20px;
+            border: 2px solid rgba(124, 58, 237, 0.2);
+            box-shadow: 0 0 60px rgba(124, 58, 237, 0.4);
+        }
+
+        .avatar-character {
+            width: 140px;
+            height: 160px;
+            position: relative;
+        }
+
+        .avatar-face {
+            width: 100px;
+            height: 110px;
+            background: #f5d7b3;
+            border-radius: 45% 45% 40% 40%;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .avatar-hair {
+            width: 110px;
+            height: 60px;
+            background: #2c1810;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .avatar-body {
+            width: 140px;
+            height: 60px;
+            background: #1e293b;
+            border-radius: 20px 20px 30px 30px;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 700px;
+        }
+
+        .label {
+            color: #a78bfa;
+            font-size: 25px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+            font-family: 'Caveat', cursive;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            font-family: 'Caveat', cursive;
+        }
+
+        .hero-text h1 .cover {
+            background: linear-gradient(90deg, #a855f7 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-family: 'Caveat', cursive;
+            font-size: 60px;
+            position: relative;
+            display: inline-block;
+            padding-right: 10px;
+        }
+        
+        .hero-text h1 .cover::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 10px;
+            height: 3px;
+            background: linear-gradient(90deg, #a855f7 0%, #7c3aed 100%);
+            border-radius: 2px;
+        }
+
+        .description {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.9;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .work-section {
+            padding: 120px 80px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 80px;
+            text-align: left;
+            letter-spacing: -0.5px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .work-card {
+            background: linear-gradient(135deg, rgba(88, 28, 135, 0.4) 0%, rgba(67, 20, 110, 0.3) 100%);
+            border: 2px solid rgba(147, 51, 234, 0.3);
+            border-radius: 30px;
+            padding: 50px 45px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            min-height: 220px;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(147, 51, 234, 0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .work-card::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            box-shadow: 
+                15px 0 0 rgba(255, 255, 255, 0.3),
+                30px 0 0 rgba(255, 255, 255, 0.3),
+                0 15px 0 rgba(255, 255, 255, 0.2),
+                200px 150px 0 rgba(255, 255, 255, 0.2),
+                220px 160px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(147, 51, 234, 0.35);
+            border-color: rgba(147, 51, 234, 0.5);
+        }
+
+        .work-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon-wrapper {
+            min-width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            font-size: 64px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+        }
+
+        .card-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-title {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: -0.3px;
+        }
+
+        .card-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 150px 80px;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .logo-container {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-glow-1 {
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.5) 0%, transparent 70%);
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .logo-glow-2 {
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            background: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.6) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.05); }
+        }
+
+        .logo-large {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 80px rgba(124, 58, 237, 1));
+        }
+
+        .contact-section {
+            padding: 120px 80px 100px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 35px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-text {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.9;
+            font-size: 17px;
+            margin-bottom: 45px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-icon:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: translateY(-4px);
+            border-color: rgba(124, 58, 237, 0.4);
+        }
+
+        .tooltip {
+            position: fixed;
+            background: rgba(124, 58, 237, 0.95);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            pointer-events: none;
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .tooltip.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 60px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav, .hero, .work-section, .logo-section, .contact-section {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .hero-text h1 .cover {
+                font-size: 46px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+            
+            .logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="logo.png" alt="Logo" class="logo">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="avatar-section">
+                <div class="glow-effect"></div>
+                <div class="avatar-circle">
+                    <div class="avatar-character">
+                        <div class="avatar-hair"></div>
+                        <div class="avatar-face"></div>
+                        <div class="avatar-body"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <p class="label">— Elvryn Solutions</p>
+                <h1>Judges a book<br>by its <span class="cover">COVER</span></h1>
+                <p class="description">
+                    A self-taught visual developer specializing in the industry for 4+ years now. 
+                    I make meaningful and delightful digital products that create an equilibrium 
+                    between user needs and business goals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="work-section" id="about">
+        <h2 class="section-title">We Offer :</h2>
+        <div class="cards-grid">
+            <div class="work-card">
+                <div class="card-icon-wrapper">
+                    <span class="card-icon">🏆</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Software Engineering</h3>
+                    <p class="card-subtitle">Can Build Mobile Apps Effortlessly</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-icon-wrapper">
+                    <span class="card-icon">💡</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Website Development</h3>
+                    <p class="card-subtitle">Can Make Professional Web-Apps</p>
+                </div>
+            </div>
+            <div class="work-card">
+                <div class="card-icon-wrapper">
+                    <span class="card-icon">☕</span>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Creative Solutions</h3>
+                    <p class="card-subtitle">Take your client onboard seamlessly by our amazing tool of digital onboard process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="logo-section">
+        <div class="logo-container">
+            <div class="logo-glow-1"></div>
+            <div class="logo-glow-2"></div>
+            <img src="logo.png" alt="Logo" class="logo-large">
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact</h2>
+        <p class="contact-text">To Contact Me</p>
+        <div class="contact-icons">
+            <a href="mailto:elvryn.code@gmail.com" class="contact-icon" title="Email">📧</a>
+            <a href="https://elvryn.com" target="_blank" class="contact-icon" title="Website">🌐</a>
+            <div class="contact-icon" id="phoneIcon" title="Click to copy">📞</div>
+        </div>
+    </section>
+
+    <div class="tooltip" id="tooltip"></div>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -80px 0px'
+        });
+
+        document.querySelectorAll('.work-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Phone number copy functionality
+        const phoneIcon = document.getElementById('phoneIcon');
+        const tooltip = document.getElementById('tooltip');
+        const phoneNumber = '+923039056328';
+
+        phoneIcon.addEventListener('click', async function() {
+            try {
+                await navigator.clipboard.writeText(phoneNumber);
+                const rect = phoneIcon.getBoundingClientRect();
+                tooltip.style.left = rect.left + rect.width / 2 + 'px';
+                tooltip.style.top = rect.top - 40 + 'px';
+                tooltip.style.transform = 'translateX(-50%)';
+                tooltip.textContent = 'Copied!';
+                tooltip.classList.add('show');
+                setTimeout(() => tooltip.classList.remove('show'), 2000);
+            } catch (err) {
+                tooltip.textContent = 'Failed to copy';
+                tooltip.classList.add('show');
+                setTimeout(() => tooltip.classList.remove('show'), 2000);
+            }
+        });
+    </script>
+</body>
+</html>
